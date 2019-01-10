@@ -1,0 +1,11 @@
+Brainstorm:
+-Select a set to open
+-Run a test: show one side, show other side after command
+    -Add # of cards to test
+-Create a database for these sets
+-Add a little GUI
+-Add multiple choice functionality
+    -Show grades
+    -Add weights to represent how often I am getting the right/wrong answer
+    -Randomly selected cards -> Weighted selections
+    -For multiple choice, find a way to show similar choices
