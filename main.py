@@ -11,8 +11,17 @@ License: GNU General Public License v3.0
 
 import os
 import codecs
+from random import choice
+from timeit import default_timer as timer
 
 fileName="testset.txt"
+
+def serveCard(pairs):
+    frontSide=choice(list(pairs))
+    backSide=pairs[frontSide]
+    print(frontSide)
+    input("Press Enter to see reverse")
+    print(backSide)
 
 try:
     #file=open(fileName,"r")
@@ -20,6 +29,20 @@ try:
 except:
     print("Error: opening file")
 
-for line in file:
-    print(repr(line))
+pairs={}
+for i,line in enumerate(file):
+    eng,jpn=line.split(":")
+    pairs[eng]=jpn
+
+for j in range(10):
+    serveCard(pairs)
+
+#practice stuff
+'''
+if __name__ == "__main__":
+    import timeit
+    setup = "from __main__ import serveCard"
+    print(timeit.timeit("serveCard()",setup=setup))
+'''
+
 
