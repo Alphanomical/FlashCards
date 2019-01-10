@@ -1,0 +1,3 @@
+hello:こんにちは
+goodbye:さようなら
+good morning:おはようございます
