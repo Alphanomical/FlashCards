@@ -9,3 +9,9 @@ Brainstorm:
     -Add weights to represent how often I am getting the right/wrong answer
     -Randomly selected cards -> Weighted selections
     -For multiple choice, find a way to show similar choices
+
+
+Further Planning:
+
+Application opens a window
+-Exit Button --> closes window (kills all activity)
