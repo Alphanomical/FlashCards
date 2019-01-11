@@ -13,48 +13,43 @@ import os
 import codecs
 from random import choice
 from timeit import default_timer as timer
-from tkinter import *
+import tkinter as tk
 
 fileName="testset.txt"
 
-def serveCard(pairs):
-    frontSide=choice(list(pairs))
-    backSide=pairs[frontSide]
-    return frontSide,backSide
 
+class FlashCardMain(object):
+    pairs={}
+    def __init__(self, parent, *args, **kwargs):
+        self.root=parent
+        self.make={}
+        parent.title("Flash Card")
+        self.loadSet()
+        frt,bck=self.serveCard()
 
-try:
-    #file=open(fileName,"r")
-    file=codecs.open(fileName, encoding='utf-8')
-except:
-    print("Error: opening file")
+        self.label=tk.Label(parent,text=frt)
+        self.label.pack()
 
-pairs={}
-for i,line in enumerate(file):
-    eng,jpn=line.split(":")
-    pairs[eng]=jpn
+    def serveCard(self):
+        frontSide = choice(list(self.pairs))
+        backSide = self.pairs[frontSide]
+        return frontSide, backSide
 
-for j in range(1):
-    serveCard(pairs)
+    def loadSet(self):
+        try:
+            # file=open(fileName,"r")
+            file = codecs.open(fileName, encoding='utf-8')
+        except:
+            print("Error: opening file")
+        for i, line in enumerate(file):
+            eng, jpn = line.split(":")
+            self.pairs[eng] = jpn
 
-window = Tk()
-window.title("Flash Cards")
-window.geometry('300x250')
-frt,bck=serveCard(pairs)
-lbl=Label(window,text=frt)
-lbl.grid(column=0,row=0)
-def clicked():
-    lbl.configure(text=bck)
-btn = Button(window, text="See Answer", bg="white", fg="Black",command=clicked)
-btn.grid(column=1, row=0)
-window.mainloop()
-
-#practice stuff
-'''
 if __name__ == "__main__":
-    import timeit
-    setup = "from __main__ import serveCard"
-    print(timeit.timeit("serveCard()",setup=setup))
-'''
+    root=tk.Tk()
+    root.geometry("300x200")
+    myApp=FlashCardMain(root)
+    root.mainloop()
+
 
 
