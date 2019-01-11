@@ -22,6 +22,7 @@ fileName="testset.txt"
 class FlashCardMain(object):
     pairs={}
     frt,bck='',''
+    cardSide=True
     def __init__(self, parent, *args, **kwargs):
         self.root=parent
         self.make={}
@@ -33,21 +34,25 @@ class FlashCardMain(object):
         self.exitButton.place(x=10,y=10)
 
         self.flashData=tk.Label(parent,text=self.frt)
-        self.flashData.pack()
+        self.flashData.place(x=150,y=100)
 
         #note to self:
         #passing an arguement into nextFlashCard triggers the button press immediately
         #command takes a reference to a function, adding an arguement ends up calling the function
         #use lambda to create anonoymous function, cleanly fixes this problem
-        self.nextButton = tk.Button(parent, text="Show Reverse",command=lambda:self.nextFlashCard(parent))
-        self.nextButton.pack()
+        self.nextButton = tk.Button(parent, text="Flip Card",command=lambda:self.flipFlashCard(parent))
+        self.nextButton.place(x=50,y=10)
 
 
 
-    def nextFlashCard(self,parent):
+    def flipFlashCard(self,parent):
         print("button pressed")
-        self.flashData.configure(text=self.bck)
-        self.flashData.pack()
+        if(self.cardSide):
+            self.flashData.configure(text=self.bck)
+        else:
+            self.flashData.configure(text=self.frt)
+        self.cardSide=not self.cardSide
+        self.flashData.place(x=150,y=100)
 
     def serveCard(self):
         frontSide = choice(list(self.pairs))
