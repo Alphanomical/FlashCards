@@ -1,0 +1,5 @@
+﻿excuse me:すみません
+yes:はい
+good morning:おはよう ございます
+nice to meet you:はじめまして
+sorry (polite):ごめんなさい
