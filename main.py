@@ -22,12 +22,21 @@ class FlashCardMain(object):
     frt,bck='',''
     cardSide=True
     packs={"testset.txt","testset2.txt"}
+
     def __init__(self, parent, *args, **kwargs):
         self.root=parent
         self.make={}
         parent.title("Flash Card")
         self.loadSet()
         self.nextCard()
+        self.tkvar = tk.StringVar()
+        self.tkvar.set("testset.txt")
+
+        #Create a popup menu and decide what happens if it get's changed
+        popupMenu = tk.OptionMenu(parent, self.tkvar, *self.packs)
+        tk.Label(parent, text="Flash Set").place(x=125,y=15,height=25)
+        popupMenu.place(x=175,y=10)
+        self.tkvar.trace('w', self.change_dropdown)
 
         self.exitButton = tk.Button(parent, text="Exit", fg="red", command=quit)
         self.exitButton.place(x=10,y=10)
@@ -41,6 +50,9 @@ class FlashCardMain(object):
         #use lambda to create anonoymous function, cleanly fixes this problem
         self.nextButton = tk.Button(parent, text="Flip Card",command=lambda:self.flipFlashCard(parent))
         self.nextButton.place(x=10,y=100)
+
+    def change_dropdown(self,*args):
+        print(self.tkvar.get())
 
     def nextCard(self):
         self.frt, self.bck = self.serveCard()
