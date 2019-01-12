@@ -17,18 +17,17 @@ import tkinter as tk
 
 fileName="testset.txt"
 
-
-
 class FlashCardMain(object):
     pairs={}
     frt,bck='',''
     cardSide=True
+    packs={"testset.txt","testset2.txt"}
     def __init__(self, parent, *args, **kwargs):
         self.root=parent
         self.make={}
         parent.title("Flash Card")
         self.loadSet()
-        self.frt,self.bck=self.serveCard()
+        self.nextCard()
 
         self.exitButton = tk.Button(parent, text="Exit", fg="red", command=quit)
         self.exitButton.place(x=10,y=10)
@@ -41,9 +40,10 @@ class FlashCardMain(object):
         #command takes a reference to a function, adding an arguement ends up calling the function
         #use lambda to create anonoymous function, cleanly fixes this problem
         self.nextButton = tk.Button(parent, text="Flip Card",command=lambda:self.flipFlashCard(parent))
-        self.nextButton.place(x=50,y=10)
+        self.nextButton.place(x=10,y=100)
 
-
+    def nextCard(self):
+        self.frt, self.bck = self.serveCard()
 
     def flipFlashCard(self,parent):
         print("button pressed")
