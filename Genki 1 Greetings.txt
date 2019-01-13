@@ -1,0 +1,15 @@
+﻿Good morning:おはよう ございます
+Good afternoon:こんにちは
+Good evening:こんばんは
+Goodbye:さようなら
+Good night:おやすみなさい
+Thank you:ありがとうございました
+No:いいえ
+I'll go and come back:いってきます
+Please go and come back:いってらっしゃい
+I'm home:ただいま
+Welcome home:おかえりなさい
+Thank you for the meal (before):いただきます
+Thank you for the meal (after): ごちそうさま
+How do you do?:はじめまして
+Nice to meet you:よろしく おねがいします

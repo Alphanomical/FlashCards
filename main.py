@@ -22,7 +22,7 @@ class FlashCardMain(object):
     pairs={}
     frt,bck='',''
     cardSide=True
-    packs={"testset","testset2","error_trigger"}
+    packs={"testset","testset2","error_trigger","Genki 1 Greetings"}
     fileName = "testset.txt"
     def __init__(self, parent, *args, **kwargs):
         self.root=parent
@@ -35,8 +35,8 @@ class FlashCardMain(object):
 
         #Create a popup menu and decide what happens if it get's changed
         popupMenu = tk.OptionMenu(parent, self.tkvar, *self.packs)
-        tk.Label(parent, text="Flash Set").place(x=125,y=15,height=25)
-        popupMenu.place(x=175,y=10)
+        tk.Label(parent, text="Flash Set").place(x=250,y=13,height=25)
+        popupMenu.place(x=300,y=10)
         self.tkvar.trace('w', self.change_dropdown)
 
         #Exit Button
@@ -100,7 +100,7 @@ class FlashCardMain(object):
 
 if __name__ == "__main__":
     root=tk.Tk()
-    root.geometry("300x200+30+30")
+    root.geometry("450x200+30+30")
     myApp=FlashCardMain(root)
     root.mainloop()
 
