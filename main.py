@@ -22,7 +22,7 @@ class FlashCardMain(object):
     pairs={}
     frt,bck='',''
     cardSide=True
-    packs={"testset","testset2","error_trigger","Genki 1 Greetings"}
+    packs={"testset","testset2","error_trigger","Genki 1 Greetings","Genki 1 Lesson 1"}
     fileName = "testset.txt"
     def __init__(self, parent, *args, **kwargs):
         self.root=parent
