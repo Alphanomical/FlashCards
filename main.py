@@ -21,7 +21,7 @@ from tkinter import messagebox
 class FlashCardMain(object):
     pairs={}
     frt,bck='',''
-    cardSide=True
+    cardSide=False
     packs={"testset","testset2","error_trigger","Genki 1 Greetings",
            "Genki 1 Lesson 1","Genki 1 Lesson 2"}
     fileName = "testset.txt"
@@ -33,7 +33,9 @@ class FlashCardMain(object):
         self.frt, self.bck = self.serveCard()
         self.tkvar = tk.StringVar()
         self.tkvar.set("testset.txt")
+        self.runApplication(parent)
 
+    def runApplication(self,parent):
         #Create a popup menu and decide what happens if it get's changed
         popupMenu = tk.OptionMenu(parent, self.tkvar, *self.packs)
         tk.Label(parent, text="Flash Set").place(x=250,y=13,height=25)
@@ -45,7 +47,7 @@ class FlashCardMain(object):
         self.exitButton.place(x=10,y=10)
 
         #The 'face' of the flash card
-        self.flashData=tk.Label(parent,text=self.frt)
+        self.flashData=tk.Label(parent,text=self.bck)
         self.flashData.config(font=("courier",10))
         self.flashData.place(x=150,y=100)
 
@@ -76,8 +78,8 @@ class FlashCardMain(object):
 
     def changeCard(self):
         self.frt,self.bck=self.serveCard()
-        self.flashData.configure(text=self.frt)
-        self.cardSide=True
+        self.flashData.configure(text=self.bck)
+        self.cardSide=False
 
     def serveCard(self):
         frontSide = choice(list(self.pairs))
@@ -96,8 +98,6 @@ class FlashCardMain(object):
         except:
             print("Error: opening file")
             messagebox.showerror("Error","File not found")
-
-
 
 if __name__ == "__main__":
     root=tk.Tk()
