@@ -16,15 +16,14 @@ from timeit import default_timer as timer
 import tkinter as tk
 from tkinter import messagebox
 
-
-
 class FlashCardMain(object):
     pairs={}
     frt,bck='',''
     cardSide=False
+    dirname="Cardsets"
     packs={"testset","testset2","error_trigger","Genki 1 Greetings",
            "Genki 1 Lesson 1","Genki 1 Lesson 2"}
-    fileName = "testset.txt"
+    fileName = "Genki 1 Greetings.txt"
     def __init__(self, parent, *args, **kwargs):
         self.root=parent
         self.make={}
@@ -32,7 +31,7 @@ class FlashCardMain(object):
         self.loadSet()
         self.frt, self.bck = self.serveCard()
         self.tkvar = tk.StringVar()
-        self.tkvar.set("testset.txt")
+        self.tkvar.set("Genki 1 Greetings")
         self.runApplication(parent)
 
     def runApplication(self,parent):
@@ -90,7 +89,7 @@ class FlashCardMain(object):
         print("loading set")
         try:
             # file=open(fileName,"r")
-            file = codecs.open(self.fileName, encoding='utf-8')
+            file = codecs.open(os.path.join(self.dirname,self.fileName), encoding='utf-8')
             self.pairs.clear()
             for i, line in enumerate(file):
                 eng, jpn = line.split(":")
