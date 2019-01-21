@@ -21,8 +21,10 @@ class FlashCardMain(object):
     frt,bck='',''
     cardSide=False
     dirname="Cardsets"
-    packs={"testset","testset2","error_trigger","Genki 1 Greetings",
-           "Genki 1 Lesson 1","Genki 1 Lesson 2"}
+    packs=["Genki 1 Greetings",
+           "Genki 1 Lesson 1",
+           "Genki 1 Lesson 2",
+           "error_trigger"]
     fileName = "Genki 1 Greetings.txt"
     def __init__(self, parent, *args, **kwargs):
         self.root=parent

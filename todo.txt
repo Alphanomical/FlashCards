@@ -1,17 +1,17 @@
+Finished:
+-Add a little GUI [DONE]
+-Select a set to open [DONE]
+-Run a test: show one side, show other side after command [DONE]
+
 Brainstorm:
--Select a set to open
--Run a test: show one side, show other side after command
-    -Add # of cards to test
--Create a database for these sets
--Add a little GUI
+-Create a database for these sets (not necessary, but for learning)
 -Add multiple choice functionality
-    -Show grades
     -Add weights to represent how often I am getting the right/wrong answer
+        -Show grades
     -Randomly selected cards -> Weighted selections
     -For multiple choice, find a way to show similar choices
-
+    -Add # of cards to test
 
 Further Planning:
-
-Application opens a window
--Exit Button --> closes window (kills all activity)
+Application opens a window [DONE]
+-Exit Button --> closes window (kills all activity) [DONE]
