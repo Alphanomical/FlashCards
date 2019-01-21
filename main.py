@@ -67,7 +67,7 @@ class FlashCardMain(object):
         self.changeCard()
 
     def flipFlashCard(self):
-        print("button pressed")
+        #print("button pressed")
         if(self.cardSide):
             self.flashData.configure(text=self.bck)
         else:
@@ -86,7 +86,7 @@ class FlashCardMain(object):
         return frontSide, backSide
 
     def loadSet(self):
-        print("loading set")
+        #print("loading set")
         try:
             # file=open(fileName,"r")
             file = codecs.open(os.path.join(self.dirname,self.fileName), encoding='utf-8')
