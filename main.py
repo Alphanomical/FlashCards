@@ -47,8 +47,17 @@ class FlashCardMain(object):
         self.exitButton = tk.Button(parent, text="Exit", fg="red", command=quit)
         self.exitButton.place(x=10,y=10)
 
+        #Card Area
+        self.cardArea=tk.Frame(parent,
+                               bd=1,
+                               relief=tk.RAISED,
+                               height=100,
+                               width=300,
+                               bg="white")
+        self.cardArea.place(x=125,y=75)
+
         #The 'face' of the flash card
-        self.flashData=tk.Label(parent,text=self.bck)
+        self.flashData=tk.Label(parent,text=self.bck,bg="white")
         self.flashData.config(font=("courier",10))
         self.flashData.place(x=150,y=100)
 

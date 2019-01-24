@@ -11,6 +11,7 @@ Brainstorm:
     -Randomly selected cards -> Weighted selections
     -For multiple choice, find a way to show similar choices
     -Add # of cards to test
+-Create a "flash card" area, where text is displayed on
 
 Further Planning:
 Application opens a window [DONE]
