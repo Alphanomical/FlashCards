@@ -2,6 +2,7 @@ Finished:
 -Add a little GUI [DONE]
 -Select a set to open [DONE]
 -Run a test: show one side, show other side after command [DONE]
+-Create a "flash card" area, where text is displayed on
 
 Brainstorm:
 -Create a database for these sets (not necessary, but for learning)
@@ -11,7 +12,6 @@ Brainstorm:
     -Randomly selected cards -> Weighted selections
     -For multiple choice, find a way to show similar choices
     -Add # of cards to test
--Create a "flash card" area, where text is displayed on
 
 Further Planning:
 Application opens a window [DONE]
