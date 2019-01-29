@@ -34,8 +34,10 @@ class FlashCardMain(object):
         self.frt, self.bck = self.serveCard()
         self.tkvar = tk.StringVar()
         self.tkvar.set("Genki 1 Greetings")
+        self.front_color = "light grey"
+        self.back_color = "white"
         self.runApplication(parent)
-
+        
     def runApplication(self,parent):
         #Create a popup menu and decide what happens if it get's changed
         popupMenu = tk.OptionMenu(parent, self.tkvar, *self.packs)
@@ -57,7 +59,7 @@ class FlashCardMain(object):
         self.cardArea.place(x=125,y=75)
 
         #The 'face' of the flash card
-        self.flashData=tk.Label(parent,text=self.bck,bg="white")
+        self.flashData=tk.Label(parent,text=self.bck,bg=self.back_color)
         self.flashData.config(font=("courier",10))
         self.flashData.place(x=150,y=100)
 
@@ -80,15 +82,18 @@ class FlashCardMain(object):
     def flipFlashCard(self):
         #print("button pressed")
         if(self.cardSide):
-            self.flashData.configure(text=self.bck)
+            self.flashData.configure(text=self.bck,bg=self.back_color)
+            self.cardArea['bg']=self.back_color
         else:
-            self.flashData.configure(text=self.frt)
+            self.flashData.configure(text=self.frt,bg=self.front_color)
+            self.cardArea['bg']=self.front_color
         self.cardSide=not self.cardSide
         self.flashData.place(x=150,y=100)
 
     def changeCard(self):
         self.frt,self.bck=self.serveCard()
-        self.flashData.configure(text=self.bck)
+        self.flashData.configure(text=self.bck,bg=self.back_color)
+        self.cardArea['bg']=self.back_color
         self.cardSide=False
 
     def serveCard(self):
